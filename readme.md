@@ -4,7 +4,7 @@
 > 持续更新中，喜欢的可以Star ~~
 
 ## 基础教程
-[菜鸟教程](https://m.runoob.com/php/php-tutorial.html)  
+[菜鸟教程](https://www.runoob.com/php/php-tutorial.html)  
 
 ## 面试题
 - [新东方教育面试题](./php/新东方教育.md)
