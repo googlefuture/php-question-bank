@@ -70,8 +70,9 @@ $document_uri： 与$uri相同。
 ```
 
 ## if语句块
+
+### if判断指令
 ```text
-if判断指令
 语法为if(condition){...}，对给定的条件condition进行判断。如果为真，大括号内的rewrite指令将被执行，if条件(conditon)可以是如下任何内容：
 
 当表达式只是一个变量时，如果值为空或任何以0开头的字符串都会当做false
@@ -83,6 +84,7 @@ if判断指令
 -x和!-x用来判断文件是否可执行
 ```
 
+### 例如：
 ```
 if ($http_user_agent ~ MSIE) {
     rewrite ^(.*)$ /msie/$1 break;
@@ -140,7 +142,10 @@ server_tokens off; #在http 模块当中配置
 
 ## Rewrite规则
 
-> rewrite功能就是，使用nginx提供的全局变量或自己设置的变量，结合正则表达式和标志位实现url重写以及重定向。rewrite只能放在server{},location{},if{}中，并且只能对域名后边的除去传递的参数外的字符串起作用，例如http://seanlook.com/a/we/index.php?id=1&u=str只对/a/we/index.php重写。语法rewrite regex replacement [flag];
+> rewrite功能就是，使用nginx提供的全局变量或自己设置的变量，结合正则表达式和标志位实现url重写以及重定向。rewrite只能放在server{},location{},if{}中，并且只能对域名后边的除去传递的参数外的字符串起作用
+
+例如http://seanlook.com/a/we/index.php?id=1&u=str
+只对/a/we/index.php重写。语法rewrite regex replacement [flag];
 
 如果相对域名或参数字符串起作用，可以使用全局变量匹配，也可以使用proxy_pass反向代理。
 
