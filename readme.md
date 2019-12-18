@@ -1,7 +1,18 @@
 
-## 最新总结，各厂php技术面试题目，以及答案，分析汇总。
+## 
+<h2 align="center">
+ php-question-bank
+</h2>
+<p align="center">
+最新总结，各厂php技术面试题目，以及答案，分析汇总。
+</p>
 
 > 持续更新中，喜欢的可以Star ~~
+
+[![](https://img.shields.io/badge/googlefuture-php_question_bank-red.svg)](https://github.com/googlefuture)
+[![GitHub issues](https://img.shields.io/github/issues/googlefuture/php-question-bank)](https://github.com/googlefuture/php-question-bank/issues)
+[![GitHub stars](https://img.shields.io/github/stars/googlefuture/php-question-bank.svg?style=social&label=Star&maxAge=2592000)](https://github.com/googlefuture/php-question-bank/stargazers/)
+[![GitHub forks](https://img.shields.io/github/forks/googlefuture/php-question-bank.svg?style=social&label=fork&maxAge=2592000)](https://github.com/googlefuture/php-question-bank/network/members/)
 
 ## 基础教程
 [菜鸟教程](https://www.runoob.com/php/php-tutorial.html)  
@@ -27,3 +38,6 @@
 组织：https://github.com/googlefuture
 
 链接：https://github.com/googlefuture/php-question-bank
+
+## 如何贡献
+所有合理的改动、优化、修正，新的组件，或者文档的修正、更新 相关的提交都会被接收
