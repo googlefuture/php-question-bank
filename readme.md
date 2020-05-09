@@ -18,10 +18,11 @@
 [菜鸟教程](https://www.runoob.com/php/php-tutorial.html)  
 
 ## 面试题
-- [新东方教育面试题](./php/新东方教育.md)
-- [楚楚街面试题](./php/楚楚街.md)
 - [php基础知识汇总](./php/基础知识汇总.md)
 - [Linux技能点汇总](./Linux/nginx技能点汇总.md)
+- [Redis基础](./Redis/redis基础.md)
+- [新东方教育面试题](./php/新东方教育.md)
+- [楚楚街面试题](./php/楚楚街.md)
 
 ## 参考
 
