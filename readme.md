@@ -7,7 +7,7 @@
 最新总结，各厂php技术面试题目，以及答案，分析汇总。
 </p>
 
-> 持续更新中，喜欢的可以Star ~~
+> 持续更新中，喜欢的可以Star，想一起汇总的可以申请加入我们 ~~
 
 [![](https://img.shields.io/badge/googlefuture-php_question_bank-red.svg)](https://github.com/googlefuture)
 [![GitHub issues](https://img.shields.io/github/issues/googlefuture/php-question-bank)](https://github.com/googlefuture/php-question-bank/issues)
@@ -18,6 +18,8 @@
 [菜鸟教程](https://www.runoob.com/php/php-tutorial.html)  
 
 ## 面试题
+- [常见面试问题](./php/常见面试问题.md)
+- [区别表格汇总](php/区别表格汇总.md)
 - [php基础知识汇总](./php/基础知识汇总.md)
 - [Linux技能点汇总](./Linux/nginx技能点汇总.md)
 - [Redis基础](./Redis/redis基础.md)
