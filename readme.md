@@ -24,6 +24,7 @@
 - [Linux技能点汇总](./Linux/nginx技能点汇总.md)
 - [Linux常用命令汇总](./Linux/Linux常用命令汇总.md)
 - [Redis基础](./Redis/redis基础.md)
+- [不知名公司的笔试题集合](./php/不知名公司的笔试题集合.md)
 - [新东方教育面试题](./php/新东方教育.md)
 - [楚楚街面试题](./php/楚楚街.md)
 
