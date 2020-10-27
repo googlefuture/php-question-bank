@@ -52,3 +52,66 @@ no 表示不主动同步，由系统完成操作，每30秒执行一次同步。
 （2）AOF开启后，支持的写QPS会比RDB支持的写QPS低，因为AOF一般会配置成每秒fsync一次日志文件，当然，每秒一次fsync，性能也还是很高的
 
 （3）以前AOF发生过bug，就是通过AOF记录的日志，进行数据恢复的时候，没有恢复一模一样的数据出来。
+
+## RDB文件的载入和AOF文件的载入比较
+
+- RDB文件在服务器启动时自动载入，只要检测到RDB文件就自动载入并处于阻塞状态，直到载入完成。
+
+- AOF文件的优先级高于RDB文件，如果服务器开启了AOF持久化功能，则在重启时会加载AOF文件，而不是RDB。（AOF通常更新频率高于RDB文件）
+
+- 如果AOF持久化关闭，才回去找RDB文件。
+
+## RDB快照的配置
+
+```
+save 900 1      // 900内,有1条写入,则产生快照
+
+save 300 1000   // 如果300秒内有1000次写入,则产生快照
+
+save 60 10000  // 如果60秒内有10000次写入,则产生快照
+```
+
+```
+stop-writes-on-bgsave-error yes  // 后台备份进程出错时,主进程是否停止写入
+
+rdbcompression yes    // 导出的rdb文件是否压缩
+
+rdbchecksum   yes //  导入rbd恢复数据时，是否验证rdb的完整性
+
+dbfilename dump.rdb  //导出来的rdb文件名
+
+dir ./  //rdb的放置路径
+```
+
+## AOF日志的配置
+
+```
+appendonly no # 是否打开 aof日志功能
+
+appendfsync always   # 每1个命令,都立即同步到aof. 安全,速度慢
+　　#appendfsync everysec # 折衷方案,每秒写1次
+　　#appendfsync no      # 写入工作交给操作系统,由操作系统判断缓冲区大小,统一写入到aof. 同步频率低,速度快,
+
+no-appendfsync-on-rewrite  yes: # 正在导出rdb快照的过程中，是否停止同步aof
+
+auto-aof-rewrite-percentage 100 #aof文件大小比起上次重写时的大小,增长率100%时,重写
+
+auto-aof-rewrite-min-size 64mb #aof文件,至少超过64M时,才重写
+```
+
+## 问题总结
+
+### 在dump rdb过程中，aof如果停止同步，会不会丢失?
+答: 不会，所有的操作缓存在内存的队列里，dump完成后，统一操作.
+
+### aof重写是指什么?
+答: aof重写是指把内存中的数据，逆化成命令，写入到aof日志里，以解决 aof日志过大的问题。
+
+### 如果rdb文件和aof文件都存在，优先用谁来恢复数据?
+答: aof
+
+### 2种是否可以同时用?
+答: 可以，而且推荐这么做
+
+### 恢复时rdb和aof哪个恢复的快
+答: rdb快，因为其是数据的内存映射，直接载入到内存；而aof是命令，需要逐条执行
